@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Books</title>
+</head>
+<body>
+    <h1>All Books</h1>
+    <ul>
+        <% books.forEach(function(book) { %>
+            <li>
+                <div class="book-item">
+                    <h2><%= book.title %></h2>
+                    <p>Author: <%= book.author %></p>
+                    <form action="/books/<%= book.id %>/edit" method="GET">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <br>
+                    <form action="/books/<%= book.id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </li>
+        <% }); %>
+    </ul>
+    <script src="index.js"></script>
+</body>
+</html>
